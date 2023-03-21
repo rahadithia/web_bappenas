@@ -1,0 +1,16 @@
+#table_rincian  {
+	border:solid 1px #333333;
+}
+
+#table_rincian th{
+	border:solid 1px #333333;
+	font-size:14px;
+	padding:10px;
+	background:#CCCCCC;
+}
+
+#table_rincian td {
+	border:solid 1px #333333;
+	font-size:13px;
+	padding:10px;
+}

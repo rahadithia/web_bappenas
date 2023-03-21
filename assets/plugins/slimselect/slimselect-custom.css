@@ -1,0 +1,13 @@
+.ss-main .ss-single-selected.ss-disabled .placeholder {
+    background-color: #DCDEE2 !important;
+}
+
+.ss-main .ss-single-selected .placeholder {
+    background-color: #FFF !important;
+    color: #000 !important;
+    cursor: pointer;
+}
+
+.ss-main {
+    height: calc(1.525rem + 2px) !important;
+}
