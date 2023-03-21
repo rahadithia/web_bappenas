@@ -41,18 +41,6 @@ class Model_pendaftaran extends Ci_Model
         return $query;
     }
 
-    public function get_data_krt_all($nik)
-    {
-        $this->db->select('a.*');
-        $this->db->from('t_data_krt a');
-        $this->db->where('a.deleted', '0');
-        if ($this->input->post('nik')) {
-            $this->db->where("a.nik NOT IN ($nik)");
-        }
-        $query = $this->db->get()->result();
-        return $query;
-    }
-
     public function count_all()
     {
         $this->db->from('t_pendaftar');
@@ -67,34 +55,10 @@ class Model_pendaftaran extends Ci_Model
         return $query->row();
     }
 
-    function get_kk_detail($id_krt)
-    {
-        $this->db->select('*');
-        $this->db->from('t_nokk_krt');
-        $this->db->where('id_krt', (int)$id_krt);
-        $this->db->order_by('id', 'asc');
-        return $this->db->get()->result();
-    }
-
-    function insert_batch($data, $table)
-    {
-        $this->db->insert_batch($table, $data);
-        return true;
-    }
-
     function delete($id)
     {
         $this->db->where('id_pendaftar', $id);
         $this->db->delete('t_pendaftar');
         return true;
-    }
-
-    function cek_kk($no_kk = null)
-    {
-        $this->db->select('nama_lgkp');
-        $this->db->from('m_warga');
-        $this->db->where('no_kk', $no_kk);
-        $this->db->where('id_stat_hbkel', 1);
-        return $this->db->get()->row();
     }
 }
